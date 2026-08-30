@@ -21,6 +21,8 @@ with st.sidebar:
     work_orders_board_id = st.text_input("Work Orders Board ID")
     
     available_models = [
+        "openai/gpt-oss-20b",
+        "openai/gpt-oss-120b",
         "llama3-8b-8192",
         "llama3-70b-8192",
         "llama-3.1-8b-instant",
