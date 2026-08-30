@@ -4,7 +4,7 @@ from langchain_groq import ChatGroq
 from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe_agent
 
 class BIAgent:
-    def __init__(self, deals_df: pd.DataFrame, work_orders_df: pd.DataFrame, openai_api_key: str = None):
+    def __init__(self, deals_df: pd.DataFrame, work_orders_df: pd.DataFrame, openai_api_key: str = None, model_name: str = "llama3-8b-8192"):
         self.deals_df = deals_df
         self.work_orders_df = work_orders_df
         api_key = openai_api_key or os.environ.get("OPENAI_API_KEY")
@@ -14,7 +14,7 @@ class BIAgent:
             
         self.llm = ChatGroq(
             temperature=0, 
-            model_name="llama-3.3-70b-versatile",
+            model_name=model_name,
             groq_api_key=api_key
         )
         

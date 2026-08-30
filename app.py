@@ -20,6 +20,17 @@ with st.sidebar:
     deals_board_id = st.text_input("Deals Board ID")
     work_orders_board_id = st.text_input("Work Orders Board ID")
     
+    available_models = [
+        "llama3-8b-8192",
+        "llama3-70b-8192",
+        "llama-3.1-8b-instant",
+        "llama-3.1-70b-versatile",
+        "llama-3.3-70b-versatile",
+        "mixtral-8x7b-32768",
+        "gemma2-9b-it",
+    ]
+    selected_model = st.selectbox("Groq Model", available_models, index=0)
+    
     load_data_btn = st.button("Connect & Load Data")
 
 # Session state initialization
@@ -53,7 +64,8 @@ if load_data_btn:
                 st.session_state.bi_agent = BIAgent(
                     deals_df=st.session_state.deals_df,
                     work_orders_df=st.session_state.work_orders_df,
-                    openai_api_key=openai_api_key
+                    openai_api_key=openai_api_key,
+                    model_name=selected_model
                 )
                 
                 st.session_state.agent_initialized = True
