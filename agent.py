@@ -14,7 +14,7 @@ class BIAgent:
             
         self.llm = ChatGroq(
             temperature=0, 
-            model_name="llama-3.1-70b-versatile",
+            model_name="mixtral-8x7b-32768",
             groq_api_key=api_key
         )
         
