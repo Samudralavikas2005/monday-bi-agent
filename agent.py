@@ -22,7 +22,7 @@ class BIAgent:
             self.llm,
             [self.deals_df, self.work_orders_df],
             verbose=True,
-            agent_type="zero-shot-react-description",
+            agent_type="tool-calling",
             allow_dangerous_code=True,
             prefix="""You are an expert Business Intelligence AI Agent working for the founders and leadership team of a company.
 Your goal is to answer founder-level business queries about revenue, pipeline health, sectoral performance, and operational metrics.
