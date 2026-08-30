@@ -1,7 +1,7 @@
 # Decision Log: Monday.com Business Intelligence Agent
 
 ## Key Assumptions
-1. **API Keys and Authentication**: It is assumed that the user has valid Monday.com and OpenAI API keys. The solution relies on standard Monday GraphQL API (v2) tokens and OpenAI for natural language intelligence.
+1. **API Keys and Authentication**: It is assumed that the user has valid Monday.com and Groq API keys. The solution relies on standard Monday GraphQL API (v2) tokens and open-weight models (via Groq) for natural language intelligence.
 2. **Board Schema Alignment**: I assumed the user will upload the Excel sheets as boards such that columns roughly match standard concepts (Dates, Revenue/Amount, Status, Sectors). My cleaning pipeline (`data_cleaner.py`) dynamically maps columns by searching for keywords like "date", "cost", "revenue", "status" rather than hardcoding exact column names.
 3. **Data Volume**: I assumed the row counts in the Work Orders and Deals boards are small to moderate (a few thousand rows). The current architecture fetches all items into an in-memory Pandas dataframe. This is perfect for BI Agent operations on moderate data but would need pagination/incremental updates for massive datasets.
 
